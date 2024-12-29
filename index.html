@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFETech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="img/png/gif" href="Images\CAFETech.png">
+    <script src="script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+   </style>
+</head>
+<body>
+    <header class="top-header">
+        <div class="contact-info">
+            <p>
+                <a href="https://goo.gl/maps/US5CbfYG9vThjavr6" target="_blank" >🗺️ Poblacion, Medellin , Cebu</a>|
+                <a href="mailto:markcleocalbang05@gmail.com" > 📧CAFETech@gmail.com</a> |
+                <a href="tel:+639178646316" >📞+63 963 212 2892</a> 
+            </p>
+        </div>
+        <a href="Pages/contact.html" class="contact-btn">CONTACT US</a>
+    </header>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+
+    <nav class="slide-menu" id="slideMenu">
+        <div class="slide-menu-logo">
+            <a href="index.html">
+                <img src="Images\CAFETech.png" alt="CAFETech logo" style="height: 80px; margin: 10px">
+            </a>
+            <a href="Pages/Login.html" id="loginRegisterLink" class="login-register">LOGIN / REGISTER</a>
+           
+           
+            <div class="cart">
+                
+                <p id="cartItemCountmobile">0</p>
+                <a href="Pages/addtocart.html">
+                    <img src="Images/add to cart.png" alt="Add to Cart" style="height: 50px;">
+                </a>
+            </div>
+            <p id="PriceofProductmobile">₱0.00</p>
+        </div>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="Pages/about.html">ABOUT US</a></li>
+            <li><a href="Pages/services.html">SERVICES</a></li>
+            <li>
+                <a href="Pages/shop.html">SHOP</a>
+                <ul class="dropdown-menu1">
+                    <li><a href="Pages/Desktop.html">Desktop</a></li>
+                    <li><a href="Pages/Laptop.html">Laptop</a></li>
+                    <li><a href="Pages/Peripherals.html">Peripherals</a></li>
+                    <li><a href="Pages/Printers.html">Printers</a></li>
+                </ul>
+            </li>
+            <li><a href="Pages/Login.html" class="logout-link" id="logoutLink">Logout</a></li>
+
+
+        </ul>
+    </nav>
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Images\CAFETech.png" alt="CAFETech logo" style="height: 80px;">
+            </a>
+        </div>
+        <div class="NAVIGATION">
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Pages/about.html">ABOUT US</a></li>
+                <li><a href="Pages/services.html">SERVICES</a></li>
+                <li class="shop-dropdown">
+                    <a href="Pages/shop.html">SHOP</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Pages/Desktop.html">Desktop</a></li>
+                        <li><a href="Pages/Laptop.html">Laptop</a></li>
+                        <li><a href="Pages/Peripherals.html">Peripherals</a></li>
+                        <li><a href="Pages/Printers.html">Printers</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="user-actions">
+            <a href="Pages/Login.html" id="loginRegisterLink1" >LOGIN / REGISTER</a>
+            <div class="cart">
+                <p id="PriceofProductDesktop">₱0.00</p>
+                <p id="cartItemCountDesktop">0</p>
+                <a href="Pages/addtocart.html">
+                    <img src="Images\add to cart.png" alt="CAFETech logo" style="height: 30px;">
+                </a>
+            </div>
+        </div>
+    </nav>
+   
+   
+    </div>
+    <br>
+    <br>
+
+  <section class="slider-section">
+    <div class="slider-container">
+     
+        <img class="mySlides" src="Products/Desktopproduct5.png" style="display: block;">
+        <img class="mySlides" src="Products/Desktopproduct6.png" style="display: none;">
+        <img class="mySlides" src="Products/Desktopproduct7.png" style="display: none;">
+        <img class="mySlides" src="Products/Desktopproduct8.png" style="display: none;">
+
+        
+        <button class="slider-btn slider-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="slider-btn slider-right" onclick="plusDivs(+1)">&#10095;</button>
+    </div>
+
+    <div class="best-seller">
+        <h2>Best Seller</h2>
+        <div class="products">
+            <div class="product" >
+                <img src="Products/Aero16.png" alt="Gigabyte Aero 16">
+                <h3>Aero 16 XE 73PH934AH</h3>
+                <p>| 16.0 UHD+ OLED 60Hz | i7-1200H | 8GB DDR5 4800 | 1TB SSD | RTX 3070Ti | Win 11 Home</p>
+                <p class="price">
+                    <span class="old-price">&#8369;114,995.00</span> &#8369;105,999.00
+                </p>
+                <button data-url="Pages/ProductsViewLaptops/Aero16.html" data-name="Aero16" class="Saleproduct" id="save-btn" >Save &#8369;8,996</button>
+                <div class="star-reviews">
+                    &#9733;&#9733;&#9733;&#9733;&#9733; <span class="rating">5/5</span>
+                </div>
+            </div>
+            <div class="product">
+                <img src="Products/MSpulse.png" alt="MSI Pulse GL66">
+                <h3>MSI Pulse GL66</h3>
+                <p>12UEOK-1217PH | 15.6″ FHD 240Hz | i9-12900H | 16GB (16*1) 5200MHz | 512GB NVMe PCIe SSD | RTX3060 6GB | Win 11</p>
+                <p class="price">
+                    <span class="old-price">&#8369;105,995.00</span> &#8369;95,999.00
+                </p>
+                <button data-url="Pages/ProductsViewLaptops/MSIPULSE.html" data-name="MSI Pulse GL66" class="Saleproduct" id="save-btn" >Save &#8369;9,996</button>
+                <div class="star-reviews">
+                    &#9733;&#9733;&#9733;&#9733;&#9733; <span class="rating">5/5</span>
+                </div>
+            </div>
+            <div class="product">
+                <img src="Products/Predator.png" alt="Predator Helios 300">
+                <h3>Predator Helios 300</h3>
+                <p>PH315-54-55NE | 15.6″ IPS QHD | i5-11400H | 16GB RAM | 512GB SSD | RTX 3060 | Windows 10 Home</p>
+                <p class="price">
+                    <span class="old-price">&#8369;86,999.00</span> &#8369;78,999.00
+                </p>
+                <button data-url="Pages/ProductsViewLaptops/Predator.html" data-name="Predator Helios 300" class="Saleproduct" id="save-btn" >Save &#8369;8,000</button>
+                <div class="star-reviews">
+                    &#9733;&#9733;&#9733;&#9733;&#9733; <span class="rating">5/5</span>
+                </div>
+            </div>
+            <div class="product">
+                <img src="Products/HP15s.png" alt="Logitech F710 Gamepad">
+                <h3>HP 15S FQ5082TU (Natural Silver)</h3>
+                <p>| 15.6 FHD Antiglare slim IPS | Intel Core i5-1235U | 8GB RAM | 512GB SSD | Intel Iris Xe | Win 11 Home</p>
+                <p class="price">
+                    <span class="old-price">&#8369;41,990.00</span> &#8369;37,999.00
+                </p>
+                <button data-url="Pages/ProductsViewLaptops/HP15S.html" data-name="HP 15S " class="Saleproduct" id="save-btn">Save &#8369;3,991.00</button>
+                <div class="star-reviews">
+                    &#9733;&#9733;&#9733;&#9733;&#9734; <span class="rating">4.5/5</span>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+</div>    
+<div class="best-seller">
+    <h2>New Items</h2>
+    <div class="products" >
+        <div class="product" >
+            <img src="Products/NewItemsASUSTUF.png" alt="ASUS TUF" data-url="Pages/ProductsViewLaptops/ASUSTUFA15.html" data-name="ASUS TUF" class="Saleproduct"  >
+            <h3>ASUS TUF A15</h3>
+            <p>FA507NU-LP081W 15.6″ FHD 144Hz IPS | Ryzen 7 7735HS | RTX 4050 6GB | 16GB DDR5 RAM | 512GB SSD | Windows 11 Home</p>
+            <p class="NewItemsprice">
+               &#8369;72,999.00
+            </p>
+          
+        </div>
+        <div class="product">
+            <img src="Products/NewItemsMSIThin.png" alt="MSI Thin" data-url="Pages/ProductsViewLaptops/MSIThinA15.html" data-name="MSI Thin" class="Saleproduct">
+            <h3>MSI Thin A15</h3>
+            <p>B7VE-043PH 15.6″ FHD 144Hz IPS | Ryzen 5 7535HS | RTX 4050 6GB | 8GB DDR5 | 512GB SSD | Windows 11 Home</p>
+            <p class="NewItemsprice">
+                &#8369;52,999.00
+            </p>
+          
+        </div>
+        <div class="product">
+            <img src="Products/NewItemsHP14s.png" alt="Hp 14S" data-url="Pages/ProductsViewLaptops/HP14S-DQ3041TU.html" data-name="Hp 14S" class="Saleproduct">
+            <h3>HP 14S-DQ3041TU Natural Silver</h3>
+            <p>14″ HD | Intel N6000 | Intel UHD Graphics | 8GB DDR4 | 256GB SSD | Windows 11 Home
+            </p>
+            <p class="NewItemsprice">
+              &#8369;22,999.00
+            </p>
+            
+        </div>
+        <div class="product">
+            <img src="Products/NewItemsHPPavilion.png" alt="HP Pavilion X360" data-url="Pages/ProductsViewLaptops/HPPavilion.html" data-name="HPPavilion" class="Saleproduct">
+            <h3>HP Pavilion X360</h3>
+            <p>14-EK1062TU Space Blue 14″ FHD Touchscreen | i7-1355U | Intel Iris Xe | 16GB DDR4 | 512GB SSD | Windows 11 Home</p>
+            <p class="NewItemsprice">
+               &#8369;57,999.00
+            </p>
+           
+        </div>
+       
+    </div>
+</div>
+</div>
+
+
+</div>   
+</section>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    
+    setInterval(function() {
+        plusDivs(1);
+    }, 3000);
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) { slideIndex = 1; } 
+        if (n < 1) { slideIndex = x.length; } 
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block"; 
+    }
+   
+window.onload = function () {
+            const fullName = sessionStorage.getItem("fullName"); // Check if the user is logged in
+            const loginRegisterLink = document.getElementById("loginRegisterLink1");
+            const loginRegisterLinkcp = document.getElementById("loginRegisterLink");
+
+            const saleProducts = document.querySelectorAll(".Saleproduct");
+
+        
+            // Update login/register link if the user is logged in
+            if (fullName) {
+                loginRegisterLink.textContent = `Hello, ${fullName}`;
+                loginRegisterLinkcp.textContent = `Hello, ${fullName}`;
+                document.getElementById("logoutLink").style.display = "block";
+             //   loginRegisterLink.href = "#";
+             const handleLogout = function (link) {
+                        sessionStorage.removeItem("fullName");
+                        sessionStorage.removeItem("boughtitems");
+                        sessionStorage.removeItem("cart");
+                        link.textContent = "LOGIN / REGISTER";
+                        link.href = "index.html";
+                    };
+
+                    loginRegisterLink.addEventListener("click", function () {
+                        handleLogout(loginRegisterLink);
+                    });
+
+                    loginRegisterLinkcp.addEventListener("click", function () {
+                        handleLogout(loginRegisterLinkcp);
+                    });
+            }
+        
+            // Add click event listener to all Saleproduct elements
+            saleProducts.forEach((product) => {
+                product.addEventListener("click", function () {
+                    if (fullName) {
+                        // User is logged in, navigate to the product details page
+                        const productUrl = product.getAttribute("data-url"); // Get the product URL
+                        sessionStorage.removeItem("boughtitems");
+                        window.location.href = productUrl; // Redirect to the URL
+                    } else {
+                        // User is not logged in, show alert and redirect to login
+                        alert("Please log in or register before viewing the product.");
+                        window.location.href = "Pages/Login.html";
+                    }
+                });
+            });
+        };
+      
+        document.getElementById("logoutLink").addEventListener("click", function (event) {
+    // Prevent the default behavior (which would be following the link)
+    event.preventDefault();
+    
+    // Remove session storage items
+    sessionStorage.removeItem("fullName");
+    sessionStorage.removeItem("boughtitems");
+    sessionStorage.removeItem("cart");
+    
+    // Redirect to Login page
+    window.location.href = "Pages/Login.html";  // Redirect to Login.html
+});  
+
+
+</script>
+
+
+
+</body>
+<footer>  
+    <div class="about-header">
+        <p>©2024 CAFETech</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/groups/785882776629923/?ref=share&mibextid=NSMWBT" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/markykeyo_/profilecard/?igsh=MW8wZmVhNzdiNGZqMw==" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:CAFETech@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://t.me/+PfWFZHhRvgM1Y2Zl" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+    
+    <button class="TOP" onclick="scrollToTop()">&#8593;</button>
+</footer>
+</html>
