@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop > Printers</title>
+    <link rel="stylesheet" href="..\styles.css">
+    <link rel="shortcut icon" type="img/png/gif" href="..\Images\CAFETech.png">
+    <script src="..\script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="top-header">
+        <div class="contact-info">
+            <p>
+                <a href="https://goo.gl/maps/US5CbfYG9vThjavr6" target="_blank" >🗺️ Poblacion, Medellin , Cebu</a>  |
+                <a href="mailto:markcleocalbang05@gmail.com" > 📧  CAFETech@gmail.com</a> |
+                <a href="tel:+639178646316" >📞+63 963 212 2892</a> 
+            </p>
+        </div>
+        <a href="contact.html" class="contact-btn">CONTACT US</a>
+    </header>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+
+    <nav class="slide-menu" id="slideMenu">
+        <div class="slide-menu-logo">
+            <a href="index.html">
+                <img src="../Images/CAFETech.png" alt="CAFETech logo" style="height: 80px; margin: 10px">
+            </a>
+            <a href="Login.html" id="loginRegisterLink" class="login-register">LOGIN / REGISTER</a>
+           
+           
+            <div class="cart">
+                
+                <p id="cartItemCountmobile">0</p>
+                <a href="addtocart.html">
+                    <img src="../Images/add to cart.png" alt="Add to Cart" style="height: 50px;">
+                </a>
+            </div>
+            <p id="PriceofProductmobile">₱0.00</p>
+        </div>
+        <ul>
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li>
+                <a href="shop.html">SHOP</a>
+                <ul class="dropdown-menu1">
+                    <li><a href="Desktop.html">Desktop</a></li>
+                    <li><a href="Laptop.html">Laptop</a></li>
+                    <li><a href="Peripherals.html">Peripherals</a></li>
+                    <li><a href="Printers.html">Printers</a></li>
+                </ul>
+            </li>
+            <li><a href="Login.html" class="logout-link" id="logoutLink">Logout</a></li>
+
+
+        </ul>
+    </nav>
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="..\index.html">
+                <img src="..\Images\CAFETech.png" alt="CAFETech logo" style="height: 80px;">
+            </a>
+        </div>
+        <div class="NAVIGATION">
+            <ul class="nav-links">
+                <li><a href="..\index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li class="shop-dropdown">
+                    <a href="shop.html">SHOP</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Desktop.html">Desktop</a></li>
+                        <li><a href="Laptop.html">Laptop</a></li>
+                        <li><a href="Peripherals.html">Peripherals</a></li>
+                        <li><a href="Printers.html">Printers</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="user-actions">
+            <a href="Login.html" id="loginRegisterLink1" >LOGIN / REGISTER</a>
+            <div class="cart">
+                <p id="PriceofProductDesktop">₱0.00</p>
+                <p id="cartItemCountDesktop">0</p>
+                <a href="addtocart.html">
+                    <img src="..\Images\add to cart.png" alt="CAFETech logo" style="height: 30px;">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="shop.html">Shop</a> / <span>Printers</span>
+        </div>
+
+        <!-- Sidebar and Main Content -->
+        <div class="content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="filter">
+                    <h3>Filter by Price</h3>
+                    <input id="priceFilter" type="range" min="2298" max="9749" step="1" value="9749" oninput="updatePriceDisplay(this.value)">
+                    <p>Price: ₱<span id="priceDisplay">9,749</span></p><br>
+                    <button onclick="filterProducts()">Filter</button>
+                </div>
+
+                <div class="categories">
+                    <br>
+                    <h3>Product Categories</h3>
+                    <ul>
+                        <li><a href="Desktop.html">Desktop (8)</a></li>
+                        <li><a href="Laptop.html">Laptop (8)</a></li> 
+                        <li><a href="Peripherals.html">Peripherals (8)</a></li>
+                        <li><strong>Printers (8)</strong></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="Shopproducts">
+                <div class="product-header">
+                    <span>Showing 1–8 of 8 results</span>
+                    <select id="sortOptions" onchange="sortProducts()">
+                        <option value="latest">Sort by latest</option>
+                        <option value="low-to-high">Sort by price: low to high</option>
+                        <option value="high-to-low">Sort by price: high to low</option>
+                    </select>
+                </div>
+                <div class="product-grid">
+                   
+                    <div class="Saleproduct" data-url="ProductsViewPrinters/CanonPixma.html" data-name="Canon Pixma" data-price="2373">
+                        <img src="../Products/Printers.png" alt="Canon Pixma TS207 Stylish and Compact Printer">
+                        <h4>Canon Pixma TS207 Stylish and Compact Printer</h4>
+                        <p>₱2,373.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewPrinters/EpsonPrinter.html" data-name="Epson Printer" data-price="9749">
+                        <img src="../Products/Printers1.png" alt="Epson Printer ">
+                        <h4>Epson Printer / EcoTank L3210 MFP / All-in-One Ink Tank Printer / Printer with Scanner and Xerox</h4>
+                        <p>₱9,749.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewPrinters/BrotherDCP-T420W.html" data-name="Brother DCP-T420W" data-price="9412">
+                        <img src="../Products/Printers2.png" alt="Brother DCP-T420W ">
+                        <h4>Brother DCP-T420W Inkjet Printer / Wireless Printing / Mobile Printing / Copier / Scanner
+                        </h4>
+                        <p>₱9,412.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewPrinters/EpsonPrinterL121.html" data-name="Epson Printer / L121" data-price="6214" >
+                        <img src="../Products/Printers3.png" alt="Epson Printer / L121 Ink Tank Printer Single Function Printer / Printer Ink Tanks">
+                        <h4>Epson Printer / L121 Ink Tank Printer Single Function Printer / Printer Ink Tanks</h4>
+                        <p>₱6,214.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewPrinters/CanonMG2570S.html" data-name="Canon MG2570S"  data-price="3185">
+                        <img src="../Products/Printers4.png" alt="Canon">
+                        <h4>Canon MG2570S Multi Function Color Printer</h4>
+                        <p>₱3,185.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewPrinters/EpsonEcotank.html" data-name="Epson Ecotank" data-price="5885" >
+                        <img src="../Products/Printers5.png" alt="Epson Ecotank">
+                        <h4>Epson Ecotank L121 A4 Ink Tank Printer Cartridge-Free Print Only System 664 Bottle</h4>
+                        <p>₱5,885.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewPrinters/CanonTS207.html" data-name="Canon TS207" data-price="2298">
+                        <img src="../Products/Printers6.png" alt="Canon TS207">
+                        <h4>Canon TS207 Inkjet Printer Single Function Compact Printer with Low-Cost Cartridges</h4>
+                        <p>₱2,298.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewPrinters/Thermalprinter.html" data-name="Thermal printer" data-price="2668">
+                        <img src="../Products/Printers7.png" alt="Thermal printer ">
+                        <h4>Thermal printer air Waybill Barcode Shipping Label bluetooth usb consignment note stickers</h4>
+                        <p>₱2,668.00</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+   
+<footer>  
+    <div class="about-header">
+        <p>©2024 CAFETech</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/groups/785882776629923/?ref=share&mibextid=NSMWBT" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/markykeyo_/profilecard/?igsh=MW8wZmVhNzdiNGZqMw==" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:CAFETech@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://t.me/+PfWFZHhRvgM1Y2Zl" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+    <button class="TOP" onclick="scrollToTop()">&#8593;</button>
+</footer>
+
+
+
+</body>
+<script>
+    document.getElementById("logoutLink").addEventListener("click", function (event) {
+        // Prevent the default behavior (which would be following the link)
+        event.preventDefault();
+        
+        // Remove session storage items
+        sessionStorage.removeItem("fullName");
+        sessionStorage.removeItem("boughtitems");
+        sessionStorage.removeItem("cart");
+        
+        // Redirect to Login page
+        window.location.href = "Login.html";  // Redirect to Login.html
+    });  
+    </script>
+</html>

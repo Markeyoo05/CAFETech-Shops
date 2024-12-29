@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <link rel="shortcut icon" type="img/png/gif" href="..\Images\CAFETech.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+
+            * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9fafc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        }
+        .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+        }
+
+       
+        .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        }
+
+        .logo img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        }
+
+        .logo h1 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        }
+
+       
+        .login-form h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        }
+
+        .login-form p {
+        color: #6c757d;
+        margin-bottom: 20px;
+        }
+
+    
+        .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+        }
+
+        .input-group label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #6c757d;
+        }
+
+        .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        }
+
+  
+        .options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        }
+
+        .options a {
+        font-size: 14px;
+        color: #007bff;
+        text-decoration: none;
+        }
+
+        .options a:hover {
+        text-decoration: underline;
+        }
+
+       
+        .btn-primary {
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+        background-color: #0056b3;
+        }
+
+        
+        .btn-google {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: box-shadow 0.3s;
+        }
+
+        .btn-google img {
+        width: 20px;
+        margin-right: 10px;
+        }
+
+        .btn-google:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+       
+        .signup-text {
+        margin-top: 20px;
+        font-size: 14px;
+        }
+
+        .signup-text a {
+        color: #007bff;
+        text-decoration: none;
+        }
+
+        .signup-text a:hover {
+        text-decoration: underline;
+        }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="logo">
+      <img src="../Images/CAFETech.png" alt="CAFETech Logo">
+      <h1>CAFETech</h1>
+    </aside>
+    <main class="login-form">
+      <h2>Welcome Back</h2>
+      <p>Please log in with your username and password</p>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+        <div class="options">
+          <label>
+            <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+          </label>
+          <a href="Forgotpassword.html">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-primary">Log in</button>
+      </form>
+      <p class="signup-text">Don't have an account? <a href="Signup.html">Sign up</a></p>
+    </main>
+  </div>
+
+  <script>
+    // Function to toggle password visibility
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const checkbox = document.getElementById("showPassword");
+  
+      if (checkbox.checked) {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+
+    // Listen for form submission
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from submitting
+
+      // Get user input
+      const usernameInput = document.getElementById("username").value;
+      const passwordInput = document.getElementById("password").value;
+
+      // Get stored values from sessionStorage
+      const storedUsername = sessionStorage.getItem("username");
+      const storedPassword = sessionStorage.getItem("password");
+      const storedFullName = sessionStorage.getItem("fullName");
+
+      // Check if entered username and password match stored values
+      if (usernameInput === storedUsername && passwordInput === storedPassword) {
+        // If credentials match, display Full Name and redirect
+        //alert(`Welcome, ${storedFullName}!`);
+        sessionStorage.setItem("loggedIn", "true"); // Indicate user is logged in
+        window.location.href = "../index.html"; // Redirect to homepage
+      } else {
+        // If credentials don't match, show an error
+        alert("Invalid username or password. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Completed</title>
+    <link rel="stylesheet" href="..\styles.css">
+    <link rel="shortcut icon" type="img/png/gif" href="..\Images\CAFETech.png">
+    <script src="..\script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+      
+        function continueShopping() {
+           
+            
+            // Redirect to shop.html
+            window.location.href = 'shop.html';
+        }
+
+        // Function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <style>
+        /* Styles for the container and header */
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        header .logo {
+            height: 100px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            padding: 0;
+        }
+
+        header nav ul li {
+            font-size: 14px;
+        }
+
+        header nav ul .step {
+            display: inline-block;
+            background: #ddd;
+            color: black;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 20px;
+            margin-right: 5px;
+        }
+
+        header nav ul .active {
+            background: red;
+            color: white;
+        }
+
+        /* Checkmark styles */
+        .checkmark {
+            font-size: 80px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        /* Button styles */
+        .continue-shopping-btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .continue-shopping-btn:hover {
+            background: #45a049;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            background: white;
+            padding: 10px 0;
+        }
+
+        .TOP {
+            margin-top: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .TOP:hover {
+            background: #45a049;
+        }
+        @media only screen and (max-width: 768px) {
+
+            header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    header .logo {
+        height: 80px; /* Resize logo */
+        margin-bottom: 10px; /* Add spacing below */
+    }
+
+    /* Display only the active step */
+    header nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        display: none; /* Hide all steps */
+    }
+    header nav ul li:nth-child(3) {
+    display: inline-block; /* Show the second step */
+}
+
+    /* Cart items layout for a single horizontal row */
+    main {
+        display: flex;
+        flex-direction: column; /* Stack cart items and totals */
+    }
+
+
+
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <header>
+            <img src="../Images/CAFETech.png" alt="Logo" class="logo">
+           
+            <nav>
+                <ul>
+                    <li><span class="step">1</span> Shopping Cart</li>
+                    <li><span class="step">2</span> Checkout Details</li>
+                    <li><span class="step active">3</span> Order Complete</li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <!-- Checkmark Icon -->
+            <div class="checkmark">✔</div>
+            <h1>Thank You for Your Purchase!</h1>
+            <p>Your order has been successfully placed. You will receive a confirmation email shortly.</p><br>
+            <!-- New Continue Shopping Button -->
+            <button class="continue-shopping-btn" onclick="continueShopping()">Continue Shopping </button>
+        </div>
+    </div>
+    
+</body>
+<footer>  
+    <div class="about-header">
+        <p>©2024 CAFETech</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/groups/785882776629923/?ref=share&mibextid=NSMWBT" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/markykeyo_/profilecard/?igsh=MW8wZmVhNzdiNGZqMw==" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:CAFETech@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://t.me/+PfWFZHhRvgM1Y2Zl" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+    <button class="TOP" onclick="scrollToTop()">&#8593;</button>
+</footer>
+
+</html>

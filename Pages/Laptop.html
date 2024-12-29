@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop > Laptop</title>
+    <link rel="stylesheet" href="..\styles.css">
+    <link rel="shortcut icon" type="img/png/gif" href="..\Images\CAFETech.png">
+    <script src="..\script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="top-header">
+        <div class="contact-info">
+            <p>
+                <a href="https://goo.gl/maps/US5CbfYG9vThjavr6" target="_blank" >🗺️ Poblacion, Medellin , Cebu</a>  |
+                <a href="mailto:markcleocalbang05@gmail.com" > 📧  CAFETech@gmail.com</a> |
+                <a href="tel:+639178646316" >📞+63 963 212 2892</a> 
+            </p>
+        </div>
+        <a href="contact.html" class="contact-btn">CONTACT US</a>
+    </header>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+
+    <nav class="slide-menu" id="slideMenu">
+        <div class="slide-menu-logo">
+            <a href="index.html">
+                <img src="../Images/CAFETech.png" alt="CAFETech logo" style="height: 80px; margin: 10px">
+            </a>
+            <a href="Login.html" id="loginRegisterLink" class="login-register">LOGIN / REGISTER</a>
+           
+           
+            <div class="cart">
+                
+                <p id="cartItemCountmobile">0</p>
+                <a href="addtocart.html">
+                    <img src="../Images/add to cart.png" alt="Add to Cart" style="height: 50px;">
+                </a>
+            </div>
+            <p id="PriceofProductmobile">₱0.00</p>
+        </div>
+        <ul>
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li>
+                <a href="shop.html">SHOP</a>
+                <ul class="dropdown-menu1">
+                    <li><a href="Desktop.html">Desktop</a></li>
+                    <li><a href="Laptop.html">Laptop</a></li>
+                    <li><a href="Peripherals.html">Peripherals</a></li>
+                    <li><a href="Printers.html">Printers</a></li>
+                </ul>
+            </li>
+            <li><a href="Login.html" class="logout-link" id="logoutLink">Logout</a></li>
+
+
+        </ul>
+    </nav>
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="..\index.html">
+                <img src="..\Images\CAFETech.png" alt="CAFETech logo" style="height: 80px;">
+            </a>
+        </div>
+        <div class="NAVIGATION">
+            <ul class="nav-links">
+                <li><a href="..\index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li class="shop-dropdown">
+                    <a href="shop.html">SHOP</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Desktop.html">Desktop</a></li>
+                        <li><a href="Laptop.html">Laptop</a></li>
+                        <li><a href="Peripherals.html">Peripherals</a></li>
+                        <li><a href="Printers.html">Printers</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="user-actions">
+            <a href="Login.html" id="loginRegisterLink1" >LOGIN / REGISTER</a>
+            <div class="cart">
+                <p id="PriceofProductDesktop">₱0.00</p>
+                <p id="cartItemCountDesktop">0</p>
+                <a href="addtocart.html">
+                    <img src="..\Images\add to cart.png" alt="CAFETech logo" style="height: 30px;">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="shop.html">Shop</a> / <span>Laptop</span>
+        </div>
+
+        <!-- Sidebar and Main Content -->
+        <div class="content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="filter">
+                    <h3>Filter by Price</h3>
+                    <input id="priceFilter" type="range" min="22999" max="105999" step="1" value="105999" oninput="updatePriceDisplay(this.value)">
+                    <p>Price: ₱<span id="priceDisplay">105,999</span></p><br>
+                    <button onclick="filterProducts()">Filter</button>
+                </div>
+
+                <div class="categories">
+                    <br>
+                    <h3>Product Categories</h3>
+                    <ul>
+                        <li><a href="Desktop.html">Desktop (8)</a></li>
+                        <li><strong>Laptop (8)</strong></li>
+                        <li><a href="Peripherals.html">Peripherals (8)</a></li>
+                        <li><a href="Printers.html">Printers (8)</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="Shopproducts">
+                <div class="product-header">
+                    <span>Showing 1–8 of 8 results</span>
+                    <select id="sortOptions" onchange="sortProducts()">
+                        <option value="latest">Sort by latest</option>
+                        <option value="low-to-high">Sort by price: low to high</option>
+                        <option value="high-to-low">Sort by price: high to low</option>
+                    </select>
+                </div>
+                <div class="product-grid">
+                   
+                    <div class="Saleproduct" data-url="ProductsViewLaptops/Aero16.html" data-name="Aero16" data-price="105999">
+                        <img src="../Products/laptop1.png" alt="Aero 16">
+                        <h4>Aero 16 XE 73PH934AH | 16.0 UHD+ OLED 60Hz | i7-1200H | 8GB DDR5 4800 | 1TB SSD | RTX 3070Ti | Win 11 Home</h4>
+                        <p>₱105,999.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewLaptops/MSIPULSE.html" data-name="MSI PULSE" data-price="95999">
+                        <img src="../Products/laptop2.png" alt="MSI PULSE">
+                        <h4>MSI PULSE GL66 12UEOK-1217PH | 15.6″ FHD 240Hz | i9-12900H | 16GB (16*1) 5200MHz | 512GB NVMe PCIe SSD | RTX3060 6GB | Win 11</h4>
+                        <p>₱95,999.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewLaptops/Predator.html" data-name="Predator Helios 300" data-price="78999">
+                        <img src="../Products/laptop3.png" alt="Predator Helios 300">
+                        <h4>Predator Helios 300 PH315-54-55NE | 15.6″ IPS QHD | i5-11400H | 16GB RAM | 512GB SSD | RTX 3060 | Windows 10 Home
+                        </h4>
+                        <p>₱78,999.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewLaptops/HP15S.html" data-name="HP 15S" data-price="37999" >
+                        <img src="../Products/laptop4.png" alt="HP 15S FQ5082TU">
+                        <h4>HP 15S FQ5082TU (Natural Silver) | 15.6 FHD Antiglare slim IPS | Intel Core i5-1235U | 8GB RAM | 512GB SSD | Intel Iris Xe | Win 11 Home</h4>
+                        <p>₱37,999.00</p>
+                    </div>
+                    <div class="Saleproduct"  data-url="ProductsViewLaptops/ASUSTUFA15.html" data-name="ASUS TUF A15" data-price="72999">
+                        <img src="../Products/laptop5.png" alt="ASUS TUF A15">
+                        <h4>ASUS TUF A15 FA507NU-LP081W 15.6″ FHD 144Hz IPS | Ryzen 7 7735HS | RTX 4050 6GB | 16GB DDR5 RAM | 512GB SSD | Windows 11 Home</h4>
+                        <p>₱72,999.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewLaptops/MSIThinA15.html" data-name="MSI Thin A15"  data-price="52999" >
+                        <img src="../Products/laptop6.png" alt="MSI Thin A15">
+                        <h4>MSI Thin A15 B7VE-043PH 15.6″ FHD 144Hz IPS | Ryzen 5 7535HS | RTX 4050 6GB | 8GB DDR5 | 512GB SSD | Windows 11 Home</h4>
+                        <p>₱52,999.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewLaptops/HP14S-DQ3041TU.html" data-name="HP 14S-DQ3041TU" data-price="22999">
+                        <img src="../Products/laptop7.png" alt="HP 14S-DQ3041TU">
+                        <h4>HP 14S-DQ3041TU Natural Silver 14″ HD | Intel N6000 | Intel UHD Graphics | 8GB DDR4 | 256GB SSD | Windows 11 Home</h4>
+                        <p>₱22,999.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewLaptops/HPPavilion.html" data-name="HPPavilion" data-price="57999">
+                        <img src="../Products/laptop8.png" alt="HPPavilion">
+                        <h4>HP Pavilion X360 14-EK1062TU Space Blue 14″ FHD Touchscreen | i7-1355U | Intel Iris Xe | 16GB DDR4 | 512GB SSD | Windows 11 Home</h4>
+                        <p>₱57,999.00</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+   
+<footer>  
+    <div class="about-header">
+        <p>©2024 CAFETech</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/groups/785882776629923/?ref=share&mibextid=NSMWBT" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/markykeyo_/profilecard/?igsh=MW8wZmVhNzdiNGZqMw==" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:CAFETech@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://t.me/+PfWFZHhRvgM1Y2Zl" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+    <button class="TOP" onclick="scrollToTop()">&#8593;</button>
+</footer>
+
+
+
+</body>
+<script>
+    document.getElementById("logoutLink").addEventListener("click", function (event) {
+        // Prevent the default behavior (which would be following the link)
+        event.preventDefault();
+        
+        // Remove session storage items
+        sessionStorage.removeItem("fullName");
+        sessionStorage.removeItem("boughtitems");
+        sessionStorage.removeItem("cart");
+        
+        // Redirect to Login page
+        window.location.href = "Login.html";  // Redirect to Login.html
+    });  
+    </script>
+</html>

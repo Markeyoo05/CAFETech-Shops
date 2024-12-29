@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+    <link rel="stylesheet" href="..\styles.css">
+    <link rel="shortcut icon" type="img/png/gif" href="..\Images\CAFETech.png">
+    <script src="..\script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .shopping-cart {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+header .logo {
+    height: 100px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 0;
+}
+
+header nav ul li {
+    font-size: 14px;
+}
+
+header nav ul .step {
+    display: inline-block;
+    background: #ddd;
+    color: black;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 20px;
+    margin-right: 5px;
+}
+
+header nav ul .active {
+    background: red;
+    color: white;
+}
+
+main {
+    display: flex;
+    gap: 20px;
+}
+
+.bought-items {
+    flex: 3;
+}
+
+.bought-items table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bought-items th, .bought-items td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.bought-items .product-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bought-items .product-info img {
+    width: 100px;
+    height: auto;
+}
+
+.product-info img:hover{
+    transform: scale(1.5); 
+}
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+.quantity-control button {
+    background-color: #f5f5f5; /* Light gray background */
+    border: 1px solid #ccc; /* Border with slight gray color */
+    color: #333; /* Darker text color */
+    font-size: 16px; /* Font size */
+    width: 35px; /* Width of the button */
+    height: 35px; /* Height of the button */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input box styling */
+.quantity-control input[type="number"] {
+    width: 60px; /* Width of the input box */
+    height: 35px; /* Height of the input box */
+    text-align: center; /* Center the text */
+    font-size: 16px; /* Font size */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 4px; /* Rounded corners */
+    outline: none; /* Remove default outline on focus */
+}
+
+/* Hover effect for buttons */
+.quantity-control button:hover {
+    background-color: #e0e0e0; /* Slightly darker gray */
+    border-color: #999; /* Darker border on hover */
+}
+
+/* Active effect for buttons */
+.quantity-control button:active {
+    background-color: #d6d6d6; /* Darker gray for active state */
+    transform: scale(0.95); /* Slightly shrink for a pressed effect */
+}
+
+
+.continue-shopping {
+    background: none;
+    border: 1px solid red;
+    color: red;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.continue-shopping:hover {
+    background: none;
+    border: 1px solid red;
+    background-color: red;
+    color: rgb(19, 7, 7);
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.bought-totals {
+    flex: 1;
+    background: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.bought-totals h2 {
+    margin-top: 0;
+}
+
+.bought-totals .boughtsubtotal, .bought-totals .boughttotal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.bought-totals .shipping {
+    margin-bottom: 20px;
+}
+
+.bought-totals .shipping-methods label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.proceedtocheckout {
+    background: red;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.select-item {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    line-height: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+   /*Styles for the add to cart */
+   header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    header .logo {
+        height: 80px; /* Resize logo */
+        margin-bottom: 10px; /* Add spacing below */
+    }
+
+    /* Display only the active step */
+    header nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        display: none; /* Hide all steps */
+    }
+
+    header nav ul li:first-child {
+        display: inline-block; /* Show the active step */
+    }
+
+    /* Cart items layout for a single horizontal row */
+    main {
+        display: flex;
+        flex-direction: column; /* Stack cart items and totals */
+    }
+    .bought-items {
+        width: 100%;
+    }
+
+    .bought-items table thead {
+        display: none; /* Hide table header */
+    }
+
+    .bought-items table tbody tr {
+        display: flex;
+        flex-direction: column; /* Stack items */
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .bought-items td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .bought-items .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .bought-items .product-info img {
+        width: 100px; /* Resize image */
+        margin-bottom: 5px;
+    }
+
+    /* Align buttons */
+    .continue-shopping {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        width: 90%;
+    }
+
+   
+    
+
+ }
+
+
+    </style>
+</head>
+<body>
+    <div class="shopping-cart">
+        <header>
+            <img src="../Images/CAFETech.png" alt="Logo" class="logo">
+           
+            <nav>
+                <ul>
+                    <li><span class="step active">1</span> Payment Method</li>
+                    <li><span class="step">2</span> Checkout Details</li>
+                    <li><span class="step">3</span> Order Complete</li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="bought-items">
+                <table>
+                    <thead>
+                        <tr>
+                          
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="continue-shopping" onclick="window.location.href='shop.html'">← Continue Shopping</button>
+            </section>
+
+            <section class="bought-totals">
+                <h2>Purchase </h2>
+                <hr>
+                <br>
+                <div class="boughtsubtotal">
+                    <span>Subtotal</span>
+                    <span>₱</span>
+                </div>
+                <hr>
+                <br>
+                <div class="shipping">
+                    <span>Payment Method</span>
+                    <br>
+                    <div class="shipping-methods">
+                        <br>
+                        <label><input type="radio" name="shipping" value="COD" checked> <span class="cash-on-delivery">Cash on Delivery</span></label>
+                        <label><input type="radio" name="shipping" value="Gcash" > <span class="Gcash">Gcash</span></label>
+                        <label><input type="radio" name="shipping"  value="Paymaya"> <span class="Paymaya">Paymaya</span></label>
+                       
+                    </div>
+                    <br>
+                   
+                </div>
+                <div class="boughttotal">
+                    <span>Total</span>
+                    <span></span>
+                </div>
+                <button class="proceedtocheckout">Proceed to Checkout</button>
+                
+               
+            </section>
+        </main>
+    </div>
+   
+
+
+</body>
+<footer>  
+    <div class="about-header">
+        <p>©2024 CAFETech</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/groups/785882776629923/?ref=share&mibextid=NSMWBT" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/markykeyo_/profilecard/?igsh=MW8wZmVhNzdiNGZqMw==" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:CAFETech@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://t.me/+PfWFZHhRvgM1Y2Zl" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+    
+    <button class="TOP" onclick="scrollToTop()">&#8593;</button>
+</footer>
+</html>

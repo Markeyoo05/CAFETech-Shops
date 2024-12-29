@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="..\styles.css">
+    <link rel="shortcut icon" type="img/png/gif" href="..\Images\CAFETech.png">
+    <script src="..\script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Your existing styles, just with updated class names for consistency */
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        header .logo {
+            height: 100px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            padding: 0;
+        }
+
+        header nav ul li {
+            font-size: 14px;
+        }
+
+        header nav ul .step {
+            display: inline-block;
+            background: #ddd;
+            color: black;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 20px;
+            margin-right: 5px;
+        }
+
+        header nav ul .active {
+            background: red;
+            color: white;
+        }
+
+        main {
+            display: flex;
+            gap: 20px;
+        }
+
+        .items-list {
+            flex: 3;
+            font-size: 18px;
+        }
+
+        .items-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .items-list th, .items-list td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .items-list .product-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .items-list .product-info img {
+            width: 100px;
+            height: auto;
+        }
+
+        .product-info img:hover{
+    transform: scale(1.5); 
+}
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .quantity-controls button {
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            color: #333;
+            font-size: 16px;
+            width: 35px;
+            height: 35px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .quantity-controls button:hover {
+            background-color: #e0e0e0;
+            border-color: #999;
+        }
+
+        .continue-shopping-btn {
+            background: none;
+            border: 1px solid red;
+            color: red;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .continue-shopping-btn:hover {
+            background: none;
+            border: 1px solid red;
+            background-color: red;
+            color: rgb(19, 7, 7);
+        }
+
+        .cart-summary {
+            flex: 1;
+            background: #f7f7f7;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .cart-summary h2 {
+            margin-top: 0;
+        }
+
+        .cart-summary .subtotal, .cart-summary .total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .cart-summary .shipping {
+            margin-bottom: 20px;
+        }
+
+        .payment-methods label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .proceed-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .select-item {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 2px solid #007bff;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+            line-height: 16px;
+        }
+
+        .select-item.selected {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .select-item.selected::before {
+            content: '✔';
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            top: 0;
+            left: 2px;
+        }
+
+        .delivery-details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .delivery-details input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+        }
+        .payment-details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .payment-details input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .paid-checkbox {
+            display: flex;
+            align-items: center;
+        }
+        .shipping {
+    margin-bottom: 20px;
+}
+
+.shipping span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.shipping input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    text-align: center;
+    cursor: not-allowed;  /* Disable interaction as it's readonly */
+    font-weight: bold;
+}
+
+.shipping input[type="text"].readonly {
+    background-color: #e0e0e0;  /* Slightly greyed out background for readonly input */
+}
+
+
+@media only screen and (max-width: 768px) {
+   /*Styles for the add to cart */
+   header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    header .logo {
+        height: 80px; /* Resize logo */
+        margin-bottom: 10px; /* Add spacing below */
+    }
+
+    /* Display only the active step */
+    header nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        display: none; /* Hide all steps */
+    }
+    header nav ul li:nth-child(2) {
+    display: inline-block; /* Show the second step */
+}
+
+    /* Cart items layout for a single horizontal row */
+    main {
+        display: flex;
+        flex-direction: column; /* Stack cart items and totals */
+    }
+    .items-list table {
+        display: block; /* Make the table behave like a block element */
+        width: 100%;
+        border: 1px solid #ddd; /* Add a border around the table */
+        border-collapse: collapse;
+    }
+
+    .items-list thead {
+        display: none; /* Hide table header on mobile */
+    }
+
+    .items-list tr {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ddd; /* Border between rows */
+        padding-bottom: 10px;
+    }
+
+    .items-list td {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd; /* Border around each cell */
+    }
+
+    .product-info {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .product-info img {
+        width: 100px;
+        height: auto;
+    }
+
+    .product-info span {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    .items-list .product-info,
+    .items-list td {
+        width: 100%;
+    }
+
+    .items-list .quantity-controls,
+    .items-list .product-info,
+    .items-list .subtotal {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .items-list .quantity-controls button {
+        width: 30px; /* Adjust button width for better fit */
+        height: 30px;
+    }
+
+    .continue-shopping-btn {
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+    }
+ }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <header>
+            <img src="../Images/CAFETech.png" alt="Logo" class="logo">
+         
+            <nav>
+                <ul>
+                    <li><span class="step">1</span> Shopping Cart</li>
+                    <li><span class="step active">2</span> Checkout Details</li>
+                    <li><span class="step">3</span> Order Complete</li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="items-list">
+                <table>
+                    <thead>
+                        <tr>
+                           
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Cart items will be dynamically added here -->
+                    </tbody>
+                </table>
+                <button class="continue-shopping-btn" onclick="window.location.href='addtocart.html'">← Shopping cart</button>
+            </section>
+
+            <section class="cart-summary">
+                <h2>Checkout</h2>
+                <br>
+                <hr>
+                <br>
+                <div class="subtotal">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₱0.00</span>
+                </div><br>
+                <hr>
+
+                <div id="delivery-details" class="delivery-details">
+                    <h3>Enter Your Delivery Details</h3>
+                    <input type="text" id="fullname" placeholder="Full Name" required>
+                    <input type="text" id="contactnumber" placeholder="Contact Number" required>
+                    <p id="contact-error" style="color: red; font-size: 14px; margin-top: 5px;"></p>
+                    <input type="text" id="zipcode" placeholder="Zipcode" required>
+                    <p id="zipcode-error" style="color: red; font-size: 14px; margin-top: 5px;"></p>
+                    <input type="text" id="street" placeholder="Street" required>
+                    <input type="text" id="barangay" placeholder="Barangay" required>
+                    <input type="text" id="municipality" placeholder="Municipality" required>
+                    <input type="text" id="province" placeholder="Province" required>
+                </div>
+                <div class="payment-details" id="gcash-paymaya-details" style="display: none;">
+                    <h3>Payment Details</h3><br>
+                    <label for="accountFullName">Gcash Name:</label>
+                    <input type="text" id="accountFullName" value="Mark Cleo Calbang" readonly>
+                    
+                    <label for="accountNumber">Gcash Number:</label>
+                    <input type="text" id="accountNumber" value="09632122892" readonly>  <br>
+                  
+                    <div class="paid-checkbox">
+                        <input type="checkbox" id="gcash-paid"> <label for="gcash-paid">Paid</label>
+                    </div>
+                </div>
+                <br>
+                <div class="shipping">
+                    <span>Delivery Fee:</span>
+                    <input type="text" id="delivery-fee" class="readonly" value="₱0.00" readonly>
+                </div>
+                <div class="total">
+                    <span>Total</span>
+                    <span id="total-price">₱0.00</span>
+                </div>
+                
+                <button class="proceed-btn">Place Order</button>
+            </section>
+        </main>
+    </div>
+
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const shippingMethod = sessionStorage.getItem('shippingMethod');
+          const gcashPaymayaDetails = document.getElementById('gcash-paymaya-details');
+          const deliveryDetails = document.getElementById('delivery-details');
+  
+          // Show or hide account details based on the selected payment method
+          if (shippingMethod === 'Gcash' || shippingMethod === 'Paymaya') {
+              gcashPaymayaDetails.style.display = 'block';  // Show account details
+              deliveryDetails.style.display = 'block';  // Show delivery details form
+          } else if (shippingMethod === 'COD') {
+              gcashPaymayaDetails.style.display = 'none';  // Hide account details
+              deliveryDetails.style.display = 'block';  // Show delivery details form
+          } else {
+              gcashPaymayaDetails.style.display = 'none';  // Hide account details
+              deliveryDetails.style.display = 'none';  // Hide delivery details form if no method selected
+          }
+  
+          // Adding event listener for the zipcode input
+          const zipcodeInput = document.getElementById('zipcode');
+          zipcodeInput.addEventListener('input', calculateDeliveryFee);
+  
+          const cartItems = JSON.parse(sessionStorage.getItem('selectedItems')) || [];
+          const cartItemsTable = document.getElementById('cart-items');
+          const subtotalElement = document.getElementById('subtotal');
+          const totalPriceElement = document.getElementById('total-price');
+          const contactNumberInput = document.getElementById('contactnumber'); // Contact number input
+          const contactErrorElement = document.getElementById('contact-error'); // Add an error message container in your HTML
+
+          let total = 0;
+          
+          // Format function to add commas
+          const formatPrice = (price) => {
+              return new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(price);
+          };
+          
+  
+          // Render cart items
+          cartItems.forEach(item => {
+              const row = document.createElement('tr');
+              const subtotal = item.price * item.quantity;
+              total += subtotal;
+          
+              row.innerHTML = `
+                  <td>
+                      <div class="product-info">
+                          <img src="${item.image}" alt="${item.name}">
+                          <span>${item.name}</span>
+                      </div>
+                  </td>
+                  <td>₱${formatPrice(item.price)}</td>
+                  <td>${item.quantity}</td>
+                  <td>₱${formatPrice(subtotal)}</td>
+              `;
+              cartItemsTable.appendChild(row);
+          });
+          
+          // Update subtotal and total
+          subtotalElement.textContent = `₱${formatPrice(total)}`;
+          totalPriceElement.textContent = `₱${formatPrice(total)}`;
+  
+          // Delivery Fees mapping
+          const deliveryFees = {
+              "6000": 250, "6001": 210, "6002": 205, "6003": 200, "6004": 195, "6005": 190,
+              "6006": 185, "6007": 180, "6008": 175, "6009": 170, "6010": 100, "6011": 120,
+              "6012": 50, "6013": 120, "6014": 245, "6015": 245, "6016": 255, "6017": 255,
+              "6018": 260, "6019": 270, "6020": 275, "6021": 280, "6022": 285, "6023": 290,
+              "6024": 294, "6025": 300, "6026": 305, "6027": 310, "6028": 315, "6029": 320,
+              "6030": 325
+          };
+  
+          // Calculate Delivery Fee and update total
+          function calculateDeliveryFee() {
+              const zipcode = zipcodeInput.value;
+              const deliveryFeeInput = document.getElementById('delivery-fee');
+              const errorElement = document.getElementById('zipcode-error'); // Add an error message container in your HTML
+
+            // Validate ZIP code
+                if (!deliveryFees.hasOwnProperty(zipcode)) {
+                    errorElement.textContent = "Invalid ZIP code. Please enter a valid ZIP code.";
+                    deliveryFeeInput.value = "₱0.00";
+                    totalPriceElement.textContent = `₱${formatPrice(parseFloat(subtotalElement.textContent.replace(/[^0-9.]/g, '')) || 0)}`;
+                    return;
+                }
+
+                // Clear any error messages
+                errorElement.textContent = "";
+              let deliveryFee = deliveryFees[zipcode] || 0;
+              deliveryFeeInput.value = `₱${deliveryFee.toFixed(2)}`;
+          
+              const subtotal = parseFloat(subtotalElement.textContent.replace(/[^0-9.]/g, '')) || 0;
+
+              const total = subtotal + deliveryFee;
+          
+              totalPriceElement.textContent = `₱${formatPrice(total)}`;
+          }
+          contactNumberInput.addEventListener('input', function() {
+        const value = contactNumberInput.value;
+
+        // Allow only numeric input
+        contactNumberInput.value = value.replace(/[^0-9]/g, '');
+
+        // Check if the length is exactly 11 digits
+        if (contactNumberInput.value.length > 11) {
+            contactErrorElement.textContent = "Contact number must be exactly 11 digits.";
+            contactNumberInput.value = contactNumberInput.value.slice(0, 11); // Truncate to 11 digits
+        } else if (contactNumberInput.value.length < 11) {
+            contactErrorElement.textContent = "Contact number must be exactly 11 digits.";
+        } else {
+            contactErrorElement.textContent = ""; // Clear error message
+        }
+             });
+        });
+    
+
+
+
+      </script>
+    
+    
+</body>
+<footer>  
+    <div class="about-header">
+        <p>©2024 CAFETech</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/groups/785882776629923/?ref=share&mibextid=NSMWBT" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/markykeyo_/profilecard/?igsh=MW8wZmVhNzdiNGZqMw==" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:CAFETech@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://t.me/+PfWFZHhRvgM1Y2Zl" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+    
+    <button class="TOP" onclick="scrollToTop()">&#8593;</button>
+</footer>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop > Desktop </title>
+    <link rel="stylesheet" href="..\styles.css">
+    <link rel="shortcut icon" type="img/png/gif" href="..\Images\CAFETech.png">
+    <script src="..\script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="top-header">
+        <div class="contact-info">
+            <p>
+                <a href="https://goo.gl/maps/US5CbfYG9vThjavr6" target="_blank" >🗺️ Poblacion, Medellin , Cebu</a>  |
+                <a href="mailto:markcleocalbang05@gmail.com" > 📧  CAFETech@gmail.com</a> |
+                <a href="tel:+639178646316" >📞+63 963 212 2892</a> 
+            </p>
+        </div>
+        <a href="contact.html" class="contact-btn">CONTACT US</a>
+    </header>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+
+    <nav class="slide-menu" id="slideMenu">
+        <div class="slide-menu-logo">
+            <a href="index.html">
+                <img src="../Images/CAFETech.png" alt="CAFETech logo" style="height: 80px; margin: 10px">
+            </a>
+            <a href="Login.html" id="loginRegisterLink" class="login-register">LOGIN / REGISTER</a>
+           
+           
+            <div class="cart">
+                
+                <p id="cartItemCountmobile">0</p>
+                <a href="addtocart.html">
+                    <img src="../Images/add to cart.png" alt="Add to Cart" style="height: 50px;">
+                </a>
+            </div>
+            <p id="PriceofProductmobile">₱0.00</p>
+        </div>
+        <ul>
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li>
+                <a href="shop.html">SHOP</a>
+                <ul class="dropdown-menu1">
+                    <li><a href="Desktop.html">Desktop</a></li>
+                    <li><a href="Laptop.html">Laptop</a></li>
+                    <li><a href="Peripherals.html">Peripherals</a></li>
+                    <li><a href="Printers.html">Printers</a></li>
+                </ul>
+            </li>
+            <li><a href="Login.html" class="logout-link" id="logoutLink">Logout</a></li>
+
+
+        </ul>
+    </nav>
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="..\index.html">
+                <img src="..\Images\CAFETech.png" alt="CAFETech logo" style="height: 80px;">
+            </a>
+        </div>
+        <div class="NAVIGATION">
+            <ul class="nav-links">
+                <li><a href="..\index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li class="shop-dropdown">
+                    <a href="shop.html">SHOP</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Desktop.html">Desktop</a></li>
+                        <li><a href="Laptop.html">Laptop</a></li>
+                        <li><a href="Peripherals.html">Peripherals</a></li>
+                        <li><a href="Printers.html">Printers</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="user-actions">
+            <a href="Login.html" id="loginRegisterLink1">LOGIN / REGISTER</a>
+            <div class="cart">
+                <p id="PriceofProductDesktop">₱0.00</p>
+                <p id="cartItemCountDesktop">0</p>
+                <a href="addtocart.html">
+                    <img src="..\Images\add to cart.png" alt="CAFETech logo" style="height: 30px;">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="shop.html">Shop</a> / <span>Desktop</span>
+        </div>
+
+        <!-- Sidebar and Main Content -->
+        <div class="content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="filter">
+                    <h3>Filter by Price</h3>
+                    <input id="priceFilter" type="range" min="4350" max="76468" step="1" value="76468" oninput="updatePriceDisplay(this.value)">
+                    <p>Price: ₱<span id="priceDisplay">76,468</span></p><br>
+                    <button onclick="filterProducts()">Filter</button>
+                </div>
+
+                <div class="categories">
+                    <br>
+                    <h3>Product Categories</h3>
+                    <ul>
+                        <li><strong>Desktop (8)</strong></li>
+                        <li><a href="Laptop.html">Laptop (8)</a></li>
+                        <li><a href="Peripherals.html">Peripherals (8)</a></li>
+                        <li><a href="Printers.html">Printers (8)</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="Shopproducts">
+                <div class="product-header">
+                    <span>Showing 1–8 of 8 results</span>
+                    <select id="sortOptions" onchange="sortProducts()">
+                        <option value="latest">Sort by latest</option>
+                        <option value="low-to-high">Sort by price: low to high</option>
+                        <option value="high-to-low">Sort by price: high to low</option>
+                    </select>
+                </div>
+                <div class="product-grid">
+                   
+                    <div class="Saleproduct" data-url="ProductsViewDesktop/AMDRyzen.html" data-name="AMD Ryzen" data-price="13199"  >
+                        <img src="../Products/Desktop1.png" alt=">AMD Ryzen">
+                        <h4>AMD Ryzen 5 5600G Gaming Desktop DDR4 16GB RAM + 512GB SSD Full Set PC For Gaming</h4>
+                        <p>₱13,199.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewDesktop/IntelCore.html" data-name="Intel Core i5" data-price="17099">
+                        <img src="../Products/Desktop2.png" alt="Intel Core i5 / i7">
+                        <h4>Intel Core i5 Desktop Computer Quad-Core 8 Thread 16GB RAM 512GB SSD Full Set Pc Computer</h4>
+                        <p>₱17,099.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewDesktop/AMDA8Gaming.html" data-name="AMD A8 Gaming"  data-price="13499">
+                        <img src="../Products/Desktop3.png" alt="AMD A8 Gaming">
+                        <h4>AMD A8 Gaming Desktop 4 Cores 16GB RAM / 512GB SSD With Radeon HD Graphics Full Set PC Computer</h4>
+                        <p>₱13,499.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewDesktop/VOVOVAAll.html" data-name="VOVOVA All" data-price="9309" >
+                        <img src="../Products/Desktop4.png" alt="VOVOVA All">
+                        <h4>VOVOVA All In One Pc Desktop Computer</h4>
+                        <p>₱9,309.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewDesktop/IpasonRyzen7.html" data-name="Ipason Ryzen7"  data-price="76468">
+                        <img src="../Products/Desktop5.png" alt="Ipason Ryzen7">
+                        <h4>Ipason Ryzen7 8 Core 16 Threads 5800X Nvidia GeForce RTX3060 16G RAM Desktop Computer Gaming PC</h4>
+                        <p>₱76,468.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewDesktop/FUNHOUSEIntel.html" data-name="FUNHOUSE Intel" data-price="22999" >
+                        <img src="../Products/Desktop6.png" alt="FUNHOUSE Intel G5420">
+                        <h4>FUNHOUSE Intel G5420 8G Memory 240G SSD 24 Inch Curved Monitor Free Keyboard Mouse a set of Desktop</h4>
+                        <p>₱22,999.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewDesktop/4thGenDell.html" data-name="4th Gen Dell" data-price="4350">
+                        <img src="../Products/Desktop7.png" alt=" 4th Gen Dell">
+                        <h4>Desktop Computer Set Desktop Core i5 4th Gen Dell 9020 8GB RAM 500GB HDD, 128GB SSD with Monitor</h4>
+                        <p>₱4,350.00</p>
+                    </div>
+                    <div class="Saleproduct" data-url="ProductsViewDesktop/AMDA4Gaming.html" data-name="AMDA4Gaming" data-price="13070">
+                        <img src="../Products/Desktop8.png" alt="AMDA4Gaming">
+                        <h4>Desktop Computer Set Gaming Desktop Computer Set PC Full Set PC Set Gaming AMD A4 7650K 3.9 GH</h4>
+                        <p>₱13,070.00</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+</body>
+<script>
+    document.getElementById("logoutLink").addEventListener("click", function (event) {
+        // Prevent the default behavior (which would be following the link)
+        event.preventDefault();
+        
+        // Remove session storage items
+        sessionStorage.removeItem("fullName");
+        sessionStorage.removeItem("boughtitems");
+        sessionStorage.removeItem("cart");
+        
+        // Redirect to Login page
+        window.location.href = "Login.html";  // Redirect to Login.html
+    });  
+    </script>
+<footer>  
+    <div class="about-header">
+        <p>©2024 CAFETech</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/groups/785882776629923/?ref=share&mibextid=NSMWBT" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/markykeyo_/profilecard/?igsh=MW8wZmVhNzdiNGZqMw==" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:CAFETech@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://t.me/+PfWFZHhRvgM1Y2Zl" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+    <button class="TOP" onclick="scrollToTop()">&#8593;</button>
+</footer>
+
+
+</html>
