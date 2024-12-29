@@ -546,7 +546,8 @@ function sortProducts() {
                     if (data.success) {
 
                         if (sessionStorage.getItem('selectedItems')) {
-                            sessionStorage.removeItem("cart");
+                            sessionStorage.removeItem("selectedItems");
+                                sessionStorage.removeItem("cart");
                         }else if(sessionStorage.getItem('boughtitems')) {
                             sessionStorage.removeItem("boughtitems");
                         }
